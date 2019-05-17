@@ -21,7 +21,7 @@
                             <a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url(); ?>PostsController">Blog</a>
+                            <a class="nav-link" href="<?php echo base_url(); ?>posts">Blog</a>
                         </li>
                     </ul>
                    
