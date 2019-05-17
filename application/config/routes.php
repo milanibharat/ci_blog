@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['posts/create']='PostsController/create';        //posts create view calling
+$route['posts/update']='PostsController/update'; 
 $route['posts/(:any)']='PostsController/view/$1'; 
 $route['posts']='PostsController/index';                //posts default page index
 $route['default_controller'] = 'PagesController/view';

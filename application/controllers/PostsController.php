@@ -42,12 +42,12 @@ class PostsController extends CI_Controller {
             redirect('posts');
         }
     }
-    
+
     public function delete($id) {
         $this->post_model->delete_post($id);
         redirect('posts');
     }
-    
+
     public function edit($slug) {
         $data['post'] = $this->post_model->get_posts($slug);
         if (empty($data['post'])) {
@@ -59,4 +59,10 @@ class PostsController extends CI_Controller {
         $this->load->view('posts/edit', $data);
         $this->load->view('templates/footer');
     }
+
+    public function update() {
+        $this->post_model->update_post();
+        redirect('posts');
+    }
+
 }

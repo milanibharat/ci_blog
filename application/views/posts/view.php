@@ -6,8 +6,8 @@
 
 <hr>
 
-<a class="btn btn-dark pull-left" href="<?php echo base_url();?>posts/edit/<?php echo $post['slug']; ?>">Edit</a><br><br>
-<?php echo form_open('/PostsController/delete/'.$post['id']); ?>
+<a class="btn btn-dark pull-left" href="<?php echo base_url(); ?>PostsController/edit/<?php echo $post['slug']; ?>">Edit</a><br><br>
+<?php echo form_open('/PostsController/delete/' . $post['id']); ?>
 <input type="submit" value="Delete" class="btn btn-danger">
 </form>
 
