@@ -6,6 +6,7 @@ class PostsController extends CI_Controller {
         $data['title'] = 'Latest Posts';                    //Shows heading according to file name
 
         $data['posts'] = $this->post_model->get_posts();
+       // print_r($data['posts']);
         /* Debugging 
           echo '<pre> ';
           print_r($data);
@@ -30,6 +31,8 @@ class PostsController extends CI_Controller {
     public function create() {
         $data['title'] = 'Create Post';
 
+        $data['categories'] = $this->post_model->get_categories();
+        
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('body', 'Body', 'required');
 
@@ -38,7 +41,26 @@ class PostsController extends CI_Controller {
             $this->load->view('posts/create', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->post_model->create_post();
+
+            //Upload Image and different config 
+            $config['upload_path'] = './assets/images/posts';
+            $config['allowed_types'] = 'jpeg|png|gip|jpg';
+            $config['max_size'] = '2048';
+            $config['width'] = '500';
+            $config['height'] = '500';
+
+
+            $this->load->library('upload', $config);
+            //check if image uploaded successfully or not
+            if (!$this->upload->do_upload()) {
+                $errors = array('error' => $this->upload->display_errors());
+                $post_image = 'noimage.jpg';
+            } else {
+                $data = array('upload_data' => $this->upload->data());
+                $post_image = $_FILES['userfile']['name'];    
+            }
+           
+            $this->post_model->create_post($post_image);
             redirect('posts');
         }
     }
@@ -50,6 +72,9 @@ class PostsController extends CI_Controller {
 
     public function edit($slug) {
         $data['post'] = $this->post_model->get_posts($slug);
+
+        $data['categories'] = $this->post_model->get_categories();
+
         if (empty($data['post'])) {
             show_404();
         }
