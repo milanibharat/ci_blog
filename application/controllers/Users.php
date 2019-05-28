@@ -50,13 +50,13 @@ class Users extends CI_Controller {
 
             if ($user_id) {
                 //create session
-                $user_data=array(
-                    'user_id'=>$user_id,
-                    'username'=>$username,
-                    'logged_in'=>TRUE
+                $user_data = array(
+                    'user_id' => $user_id,
+                    'username' => $username,
+                    'logged_in' => TRUE
                 );
                 $this->session->set_userdata($user_data);
-                
+
                 //Set Message
                 $this->session->set_flashdata('user_loggedin', 'You are now logged in');
 
@@ -71,17 +71,17 @@ class Users extends CI_Controller {
     }
 
     public function logout() {
-        //Unset User data
-                $this->session->unset_userdata($logged_in);
-                $this->session->unset_userdata($user_id);
-                $this->session->unset_userdata($username);
-                
-                //Set Message
-                $this->session->set_flashdata('user_loggedout', 'You are now logged out');
+        //Unset User data       
+        $this->session->unset_userdata($user_id);
+        $this->session->unset_userdata($username);
+        $this->session->unset_userdata($logged_in);
 
-                redirect('users/login');                                         //Do not use return statement here    
-            }      
-    
+        //Set Message
+        $this->session->set_flashdata('user_loggedout', 'You are now logged out');
+
+        redirect('users/login');                                         //Do not use return statement here    
+    }
+
     //Check if username exists
     public function check_username_exists($username) {
         $this->form_validation->set_message('check_username_exists', 'That username already used. Please choose different username');
