@@ -14,3 +14,10 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.well{
+    background: #f4f4f4;
+    padding: 4px;
+    margin: 3px 0;
+    display: block;
+}
