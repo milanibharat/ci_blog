@@ -55,7 +55,7 @@ class Post_model extends CI_Model {
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'body' => $this->input->post('body'),
-            'category_id' => $this->input->post('category_id')
+            'category_id' => $this->input->post('category_id'),       
         );
 
         $this->db->where('id', $this->input->post('id'));
