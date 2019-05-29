@@ -2,18 +2,19 @@
 
 class Posts extends CI_Controller {
 
-    public function index($offset=0) {
+    public function index($offset = 0) {
         //adding pagination config
-        $config['base_url'] = base_url().'posts/index/';
+        $config['base_url'] = base_url() . 'posts/index/';
         $config['total_rows'] = $this->db->count_all('posts');
         $config['per_page'] = 3;
         $config['uri_segment'] = 3;
+        $config['attributes'] = array('class' => 'pagination-links');  //styling
         //init pagination
         $this->pagination->initialize($config);
 
         //title
         $data['title'] = 'Latest Posts';                    //Shows heading according to file name
-        $data['posts'] = $this->post_model->get_posts(FALSE,$config['per_page'],$offset);
+        $data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
         // print_r($data['posts']);
         /* Debugging 
           echo '<pre> ';
@@ -79,7 +80,8 @@ class Posts extends CI_Controller {
             redirect('users/login');
         }
         $this->post_model->delete_post($id);
-        $this->session->set_flashdata('post_deleted', 'Your post has been deleted.');
+        // Set message
+        $this->session->set_flashdata('post_deleted', 'Your post has been deleted');
         redirect('posts');
     }
 
