@@ -30,16 +30,16 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        
-                        <?php if(!$this->session->userdata('logged_in')): ?>
-                        <a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
-                        <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
+
+                        <?php if (!$this->session->userdata('logged_in')): ?>
+                            <a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
+                            <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
                         <?php endif; ?>
-                        
-                        <?php if($this->session->userdata('logged_in')): ?>
-                        <a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create Post</a>
-                        <a class="nav-link" href="<?php echo base_url(); ?>categories/create">Create Category</a>
-                        <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
+
+                        <?php if ($this->session->userdata('logged_in')): ?>
+                            <a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create Post</a>
+                            <a class="nav-link" href="<?php echo base_url(); ?>categories/create">Create Category</a>
+                            <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
                         <?php endif; ?>
                     </ul>
 

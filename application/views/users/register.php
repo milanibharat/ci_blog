@@ -9,7 +9,7 @@
             <input type="text" class="form-control" name="name" placeholder="Name">
         </div>
         <div class="form-group">
-            <label>Zip Code</label>
+            <label>Zipcode</label>
             <input type="text" class="form-control" name="zipcode" placeholder="Zipcode">
         </div>
         <div class="form-group">
@@ -26,10 +26,9 @@
         </div>
         <div class="form-group">
             <label>Confirm Password</label>
-            <input type="password" class="form-control" name="cnfpassword" placeholder="Confirm Password">
+            <input type="password" class="form-control" name="password2" placeholder="Confirm Password">
         </div>
-        <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </div>
 </div>
 <?php echo form_close(); ?>
- 
