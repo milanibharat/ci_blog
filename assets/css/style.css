@@ -8,6 +8,7 @@
     padding: 4px;
     margin: 3px 0;
     display: block;
+    font-size: 18px;
 }
 
 .post-thumb{
@@ -65,4 +66,26 @@ a.pagination-links{
 
 .container{
     padding-bottom: 80px;
+}
+
+.reg .form-group label{
+    font-family: cursive;
+    font-size: x-large;
+}
+
+.nav-link{
+    font-size: 20px;
+}
+
+.container h2{
+    font-family: serif;
+}
+
+p{
+    font-size: 16px;
+}
+
+.break{
+    font-size: large;
+    padding: 5px 10px;
 }

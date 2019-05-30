@@ -13,7 +13,7 @@ class Posts extends CI_Controller {
         $this->pagination->initialize($config);
 
         //title
-        $data['title'] = 'Latest Posts';                    //Shows heading according to file name
+        $data['title'] = 'Latest Posts';                             //Shows heading according to file name
         $data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
         // print_r($data['posts']);
         /* Debugging 
